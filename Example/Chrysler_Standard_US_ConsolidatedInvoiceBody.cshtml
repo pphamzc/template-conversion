@@ -1,0 +1,116 @@
+﻿@using System.Data;
+@model ZeroChaos.Business.Entities.InvoicePdfGenerationDetails
+<style>
+    * {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    table {
+        border-right: 1px solid #000;
+        border-collapse: collapse;
+        font-size: 80%;
+    }
+
+        table th {
+            border: 1px solid #000;
+            border-bottom-width: 2px;
+        }
+
+        table tfoot th {
+            border: none !important;
+            border-bottom: 1px solid #000 !important;
+        }
+
+        table td {
+            border-left: 1px solid #000;
+            padding-left: 3px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+            table td.right-align {
+                text-align: right;
+                padding-right: 5px;
+            }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:10%;">
+                    <label>Name</label>
+                </th>
+                <th style="width:32%">
+                    <label>Description</label>
+                </th>
+                <th style="width:8%">
+                    <label>Approval Manager</label>
+                </th>
+                <th style="width:6%">
+                    <label>Approval Date</label>
+                </th>
+                <th style="width:6%">
+                    <label>PO #</label>
+                </th>
+                <th style="width:10%">
+                    <label>Chysler Inv Num</label>
+                </th>
+                <th style="width:6%">
+                    <label>QTY</label>
+                </th>
+                <th style="width:7%">
+                    <label>UOM</label>
+                </th>
+                <th style="width:7%">
+                    <label>Rate</label>
+                </th>
+                <th style="width:7%">
+                    <label>Total</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.BodyDetailsDataSet.Tables[0].Rows)
+            {
+                <tr>
+                    <td>
+                        @row["Name"].ToString()
+                    </td>
+                    <td>
+                        @row["Description"].ToString()
+                    </td>
+                    <td>
+                        @row["ApprovalManager"].ToString()
+                    </td>
+                    <td>
+                        @row["ApprovalDate"].ToString()
+                    </td>
+                    <td>
+                        @row["PONumber"].ToString()
+                    </td>
+                    <td>
+                        @row["AltPONum"].ToString()
+                    </td>
+                    <td class="right-align">
+                        @row["Quantity"].ToString()
+                    </td>
+                    <td>
+                        @row["Units"].ToString()
+                    </td>
+                    <td class="right-align">
+                        @row["Rate"].ToString()
+                    </td>
+                    <td class="right-align">
+                        @row["Total"].ToString()
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="10">
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

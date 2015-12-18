@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PDF xmlns="http://tempuri.org/InvoicePDFSchema.xsd"
+     ComplianceStandard ="None"
+     LeftMargin ="25"
+     RightMargin="10"
+     TopMargin="270"
+     BottomMargin="50" 
+     PageOrientation="PageLandscape">
+  <PDFHeader>
+    <PDFImage Source="zcLogo.png" x="0" y="0" Height="85" Width="85"/>
+    <PDFTable DisplayHeader ="false" x ="0" y ="105" Width="500" Height="200" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderWidth ="0" 
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic="false">
+        <Column width="45">
+          <ColumnBody>
+            <Style fontStyle ="bold"
+                   textAlign="left"
+                   verticalAlign="top"/>
+            <Item Value ="Bill To:" IsDynamic="false"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="200">
+          <ColumnBody>
+            <Style borderWidth ="0"
+                   paddingBottom ="0"
+                   paddingLeft ="0"
+                   paddingRight="0"
+                   paddingTop ="0"
+                   textAlign="left"
+                   fontSize="8"
+                   verticalAlign="top"/>
+            <Item Value ="CustomerName;Address1;Address2;CITYSTATEZIP" IsDynamic="true" ></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="280" y ="15" Height="200" DataSource="DSHEADER" DataSourceType="DataTable" >
+      <Style borderWidth ="0"
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="100">
+          <ColumnBody>
+            <Style borderWidth ="0"
+                   paddingBottom ="0"
+                   paddingLeft ="0"
+                   paddingRight="0"
+                   paddingTop ="0"
+                   fontStyle ="bold"
+                   textAlign="right"
+                   verticalAlign="top"/>
+            <Item Value ="Remit To:"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="200">
+          <ColumnBody>
+            <Style borderWidth ="0"
+             paddingBottom ="0"
+             paddingLeft ="3"
+             paddingRight="0"
+             paddingTop ="0"
+             textAlign="left"
+             verticalAlign="top"/>
+            <Item Value ="MSPName;MSPAddress1;MSPAddress2;MSPCITYSTATEZIP" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="655" y ="95" Height="200" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderWidth ="1"
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic ="false">
+        <Column width="140">
+          <ColumnBody>
+            <Style fontStyle ="bold" 
+                   paddingLeft="2"
+                   fontName="TimesNewRoman"
+                   fontSize ="10"
+                   />
+            <Item Value ="Invoice Number :"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="210">
+          <ColumnBody>
+            <Style fontStyle ="regular"
+                   paddingLeft="5"
+                   fontName="TimesNewRoman"
+                   fontSize ="9"/>
+            <Item Value = "InvoiceNum" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="655" y ="113" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable" headerHeight="35">
+      <Style borderTopWidth="0" borderBottomWidth="1" borderLeftWidth="1" borderRightWidth="1"             
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic ="false">
+        <Column width="140">
+          <ColumnBody>
+            <Style fontStyle ="bold"
+                   paddingLeft="2"
+                   fontName="TimesNewRoman"
+                   fontSize ="10"
+                   />
+            <Item Value ="Date :"></Item>
+            <Item Value ="Invoice Sub Total :"></Item>
+            <Item Value ="Tax :"></Item>
+            <Item Value ="Invocie Total :"></Item>
+            <Item Value ="Payment Terms :"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="210">
+          <ColumnBody>
+            <Style fontStyle ="regular"
+                   paddingLeft="5"
+                   fontName="TimesNewRoman"
+                   fontSize ="9" />
+            <Item Value = "InvoiceDate" IsDynamic="true"></Item>
+            <Item Value = "InvoiceSubTotal" IsDynamic="true"></Item>
+            <Item Value = "InvTotalTax" IsDynamic="true"></Item>
+            <Item Value = "InvoiceTotal" IsDynamic="true"></Item>
+            <Item Value = "PaymentTerms" IsDynamic="true"></Item>             
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFHeader>
+  <PDFBody>
+    <PDFTable DataSource="DSDETAIL" HeaderFromFirstRow ="false" Width="875" DataSourceType="DataTable" DisplayHeader="true" headerHeight="35">
+      <Style borderBottomWidth="1"
+             borderLeftWidth="1"
+             borderTopWidth="0"
+             borderRightWidth="1"
+             fontName="TimesNewRoman"
+             fontSize ="10"
+             verticalAlign ="top"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             RowDistance="2"
+             />
+      <TableColumns IsDynamic="true">
+        <Column width="90">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                    borderWidth ="1"
+                    borderTopWidth="0"
+                    borderLeftWidth="0"
+                    borderBottomWidth="1"
+                    borderRightWidth="0"
+                    verticalAlign ="middle"
+                    textAlign ="center"/>
+            <Item Value ="Name"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0" paddingLeft="2" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="Name" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="210">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="Description"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   verticalAlign ="top"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0" paddingLeft="2" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="Description" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="75">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="GL"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   verticalAlign ="top"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0" paddingLeft="2" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="GL" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="75">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="Project"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   verticalAlign ="top"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0" paddingLeft="2" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="Project" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="60">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"                    
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Appr- Date"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="center"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="ApprovalDate" IsDynamic ="true" SourceType="date"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="90">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="Approval Manager"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="2" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="ApprovalManager" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="55">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Qty"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="2" paddingBottom ="0"/>
+            <Item Value ="Quantity" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="50">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="UOM"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="center"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="0" paddingBottom ="0"/>
+            <Item Value ="UOM" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="65">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Rate"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="2" paddingBottom ="0"/>
+            <Item Value ="Rate" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="75">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Sub Total"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="2" paddingBottom ="0"/>
+            <Item Value ="SubTotal" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="68">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Tax"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="2" paddingBottom ="0"/>
+            <Item Value ="Tax" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="85">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   textAlign ="center"
+                   verticalAlign ="middle"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="1"
+                   borderRightWidth="0"
+                   paddingLeft ="0"
+                   paddingRight="0"/>
+            <Item Value ="Total"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   fontName="TimesNewRoman"
+                   fontSize ="8"
+                   paddingTop="0" paddingLeft="0" paddingRight="2" paddingBottom ="0"/>
+            <Item Value ="Total" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFBody>
+</PDF>

@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PDF xmlns="http://tempuri.org/InvoicePDFSchema.xsd"
+     ComplianceStandard ="None"
+     LeftMargin ="30"
+     RightMargin="30"
+     TopMargin="400"
+     BottomMargin="70" ShowPaging="false">
+  <PDFHeader>
+    <PDFImage Source="zcLogo.png" x="0" y="0" Height="85" Width="85"/>
+    <PDFTable DisplayHeader ="false" x="215" y ="15" DataSource="DSHEADER" DataSourceType="DataTable" >
+      <Style fontStyle="bold"
+         fontSize="9"
+         borderWidth ="0"
+         paddingBottom ="0"
+         fontName="TimesNewRoman"
+         paddingLeft ="2"
+         paddingRight="0"
+         paddingTop ="0"/>
+      <TableColumns >
+        <Column width="200">
+          <ColumnBody>
+            <Item Value ="MSPName;MSPAddress1;MSPAddress2;MSPCityStateZip" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="214" y ="92"  DataSource="DSHEADER" DataSourceType="DataTable" >
+      <Style borderWidth ="0"
+              paddingBottom ="0"
+              paddingLeft ="0"
+              paddingRight="0"
+                                fontName="TimesNewRoman"
+              paddingTop ="0"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="200">
+          <ColumnBody>
+            <Style fontStyle="bold"
+                   fontColor="blue"
+                   fontSize="9"
+              borderWidth ="0"
+             paddingBottom ="0"
+             paddingLeft ="5"
+             paddingRight="0"
+             paddingTop ="0"
+             textAlign="left"
+             verticalAlign="top"/>
+            <Item Value ="essaccounting@zerochaos.com"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="214" y ="75"  DataSource="DSHEADER" DataSourceType="DataTable" >
+      <Style borderWidth ="0"
+              paddingBottom ="0"
+              paddingLeft ="0"
+              paddingRight="0"
+              fontName="TimesNewRoman"
+              paddingTop ="0"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="200">
+          <ColumnBody>
+            <Style fontStyle="bold"
+                   fontSize="9"
+              borderWidth ="0"
+             paddingBottom ="0"
+             paddingLeft ="5"
+             paddingRight="0"
+             paddingTop ="0"
+             textAlign="left"
+             verticalAlign="top"/>
+            <Item Value ="www.zerochaos.com"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="400" y ="230" Height="200" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderBottomWidth="0" borderTopWidth="1" borderLeftWidth="1" borderRightWidth="1"
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="2"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic ="false">
+        <Column width="125">
+          <ColumnBody>
+            <Style fontStyle ="bold"/>
+            <Item Value ="Invoice Number :"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="224">
+          <ColumnBody>
+            <Style paddingLeft="2"
+                   fontName="Helvetica"
+                   fontSize ="8"/>
+            <Item Value = "InvoiceNum" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="400" y ="246" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderBottomWidth="1" borderTopWidth="1" borderLeftWidth="1" borderRightWidth="1"
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="2"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic ="false">
+        <Column width="125">
+          <ColumnBody>
+            <Style fontStyle ="bold"/>
+            <Item Value ="Date :"></Item>
+            <Item Value = "Payment Terms :"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="224">
+          <ColumnBody>
+            <Style paddingLeft="2"
+                   fontName="Helvetica"
+                   fontSize ="8"/>
+            <Item Value = "InvoiceDate" IsDynamic="true"></Item>
+            <Item Value = "PaymentTerms" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="400" y ="277" Height="200" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderBottomWidth="1" borderTopWidth="0" borderLeftWidth="1" borderRightWidth="1"
+             fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             paddingBottom ="0"
+             paddingLeft ="2"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic ="false">
+        <Column width="125">
+          <ColumnBody>
+            <Style fontStyle ="bold"/>
+            <Item Value ="Invoice Total :"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="224">
+          <ColumnBody>
+            <Style paddingLeft="2"
+                   fontName="Helvetica"
+                   fontSize ="8"/>
+            <Item Value = "InvoiceTotal" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false"  y ="170" Width="500" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderWidth ="0" fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             fontStyle="bold"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic="false">
+        <Column width="40">
+          <ColumnBody>
+            <Item Value ="Bill To:" IsDynamic="false"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false"  y ="185" Width="500" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderWidth ="0" fontName="TimesNewRoman"
+             fontSize ="9"
+             verticalAlign ="top"
+             textAlign ="left"
+             fontStyle="bold"
+             paddingBottom ="0"
+             paddingLeft ="0"
+             paddingRight="0"
+             paddingTop ="0"
+             />
+      <TableColumns IsDynamic="false">
+        <Column width="200">
+          <ColumnBody>
+            <Style fontStyle ="regular"
+                   fontName="Helvetica"
+                   verticalAlign="top"
+                   fontSize ="8"/>
+            <Item Value ="DivisionName;Address1;Address2;CityStateZip" IsDynamic="true" ></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFHeader>
+  <PDFBody>
+    <PDFTable DataSource="DSDETAIL"  Width="875" DataSourceType="DataTable" DisplayHeader="true" Height="50" headerHeight="35">
+      <Style borderBottomWidth="0"
+             borderLeftWidth="0"
+             borderTopWidth="0"
+             borderRightWidth="0"
+             fontName="Arial"
+             fontSize ="9"
+             verticalAlign ="top"
+             paddingLeft ="2"
+             paddingRight="2"
+             paddingTop ="0"
+             RowDistance ="5" />
+      <TableColumns IsDynamic="true">
+        <Column width="75">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                    borderWidth ="1"
+                    borderTopWidth="0"
+                    borderLeftWidth="0"
+                    borderBottomWidth="0"
+                    borderRightWidth="0"
+                    verticalAlign ="middle"
+                    textAlign ="center"/>
+            <Item Value ="Quantity"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="center"
+                   fontName="Helvetica"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingBottom ="0"/>
+            <Item Value ="Quantity" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="450">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="0"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="Description" ></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+                   fontName="Helvetica"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingLeft="2"
+                   paddingBottom ="0"/>
+            <Item Value ="Description_new" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="100">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                   borderWidth ="1"
+                   borderTopWidth="0"
+                   borderLeftWidth="0"
+                   borderBottomWidth="0"
+                   borderRightWidth="0"
+                   verticalAlign ="middle"
+                   textAlign ="center"/>
+            <Item Value ="Rate" ></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   fontName="Helvetica"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingRight="2"
+                   paddingBottom ="0"/>
+            <Item Value ="Rate" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="125">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+                    textAlign ="center"
+                    verticalAlign ="middle"
+                    borderWidth ="1"
+                    borderTopWidth="0"
+                    borderLeftWidth="0"
+                    borderBottomWidth="0"
+                    borderRightWidth="0"
+                    paddingLeft ="0"
+                    paddingRight="0"/>
+            <Item Value ="Amount"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   fontName="Helvetica"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingRight="2"
+                   paddingBottom ="0"/>
+            <Item Value ="InvoiceAmountWC" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DataSource="DSDETAIL" y="55" Width="875" DataSourceType="DataTable" DisplayHeader="false" Height="400">
+      <Style borderBottomWidth="1"
+             borderLeftWidth="0"
+             borderTopWidth="0"
+             borderRightWidth="0"
+             fontName="Arial"
+             fontSize ="9"
+             verticalAlign ="top"
+             paddingLeft ="2"
+             paddingRight="2"
+             paddingTop ="0"
+             RowDistance ="5" />
+      <TableColumns IsDynamic="true">
+        <Column width="75">
+          <ColumnBody>
+            <Style textAlign ="center"
+                   fontName="Helvetica"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingBottom ="0"/>
+            <Item Value ="SalesTaxQuantity" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="450">
+          <ColumnBody>
+            <Style textAlign ="left"
+                   fontName="Helvetica"
+                   verticalAlign ="top"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingLeft="2"
+                   paddingBottom ="0"/>
+            <Item Value ="SalestaxDesc" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="100">
+          <ColumnBody>
+            <Style textAlign ="right"
+                   fontName="Helvetica"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingRight="2"
+                   paddingBottom ="0"/>
+            <Item Value ="Rate" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="125">
+          <ColumnBody>
+            <Style textAlign ="right"
+                   verticalAlign ="top"
+                   fontName="Helvetica"
+                   borderLeftWidth="1"
+                   borderRightWidth="1"
+                   borderBottomWidth="0"
+                   borderTopWidth="0"
+                   paddingTop="0"
+                   paddingRight="2"
+                   paddingBottom ="0"/>
+            <Item Value ="SalesTaxAmount" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFBody>
+</PDF>

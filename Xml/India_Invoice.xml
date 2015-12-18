@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PDF xmlns="http://tempuri.org/InvoicePDFSchema.xsd"
+		 ComplianceStandard ="None"
+		 LeftMargin ="93"
+		 RightMargin="80"
+		 TopMargin="250"
+		 BottomMargin="200" ShowPaging="true">
+  <PDFHeader>
+    <PDFImage Source="zc_logo.jpg" Height="65" Width ="65" x="0" y="0"/>
+    <!-- right hand side first round rect with invoice copy text -->
+
+    <PDFTable DisplayHeader ="false" x="68" y ="0" Height="110" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="400">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="regular" paddingBottom="0" paddingTop="0" />
+            <Item Value ="ZeroChaos Workforce Solutions Pvt. Ltd." IsDynamic="false" fontSize="9" fontStyle="Bold"></Item>
+            <Item Value ="1st Floor, Pine Valley," IsDynamic="false"></Item>
+            <Item Value ="Embassy - Golf Links Business Park," IsDynamic="false"></Item>
+            <Item Value ="Off Intermediate Ring Road," IsDynamic="false"></Item>
+            <Item Value ="Bangalore - 560071, INDIA" IsDynamic="false"></Item>
+            <Item Value ="T +91 080 4176 4646" IsDynamic="false"></Item>
+            <Item Value ="Email: invoicing@zerochaos.com" IsDynamic="false"></Item>
+            <Item Value ="Website: www.zerochaos.com" IsDynamic="false"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    
+    <PDFShape X="330" Width="310" Y="-43" Height="47" RoundedX="16" RoundedY="-33" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="345" y ="6" Height="50" DataSource="DSDETAIL" DataSourceType="DataTable" rowHeight="45">
+      <Style borderWidth ="0"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="280">
+          <ColumnBody>
+            <Style fontStyle ="bold" fontSize="18" fontName="Times New Roman"  paddingBottom="0" paddingTop="0"/>
+            <Item Value ="Invoice" IsDynamic="false"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+
+    <PDFShape X="330" Width="180" Y="10" Height="47" RoundedX="16" RoundedY="-33" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="345" y ="63" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 verticalAlign ="middle"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="160">
+          <ColumnBody>
+            <Style fontName="TimesNewRoman" fontSize="10" fontStyle="regular"  paddingBottom="0" paddingTop="0"/>
+            <Item Value ="Invoice No"></Item>
+            <Item Value ="ConsolidatedInvoiceNum" IsDynamic="true" fontName="Times-Roman" fontSize="10"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+
+    <PDFShape X="518" Width="122" Y="10" Height="47" RoundedX="16" RoundedY="-33" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="532" y ="63" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 verticalAlign ="middle"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="160">
+          <ColumnBody>
+            <Style fontName="TimesNewRoman" fontSize="10" fontStyle="regular"  paddingBottom="0" paddingTop="0"/>
+            <Item Value ="Invoice Date"></Item>
+            <Item Value = "InvoiceDate" IsDynamic="true"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+
+    <PDFShape X="0" Width="325" Y="65" Height="75" RoundedX="16" RoundedY="-33" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="10" y ="118" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="400">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="bold" paddingBottom="0" paddingTop="0" />
+            <Item Value =" " IsDynamic="true" Height="5"></Item>
+            <Item Value ="MDCustomerName_Del;MDAddress1_Del;MDAddress2_Del;MDZipCityState_Del" IsDynamic="true" Height="80"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+
+    <PDFShape X="330" Width="310" Y="65" Height="75" RoundedX="16" RoundedY="-33" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="343" y ="118" Height="200" DataSource="DSDETAIL" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 fontStyle="Bold"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="140">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="bold" paddingBottom="0" paddingTop="0"/>
+            <Item Value ="CIN" IsDynamic="false"></Item>
+            <Item Value ="Service Tax No." IsDynamic="false"></Item>
+            <Item Value ="PAN No." IsDynamic="false"></Item>
+            <Item Value ="Purchase Order No." IsDynamic="false"></Item>
+            <Item Value =" " IsDynamic="true" Height="5"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="155">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="bold" paddingBottom="0" paddingTop="0" textAlign="right"/>
+            <Item Value ="U74999KA2011FTC061630" IsDynamic="false"></Item>
+            <Item Value ="AAACZ5362MSD001" IsDynamic="false"></Item>
+            <Item Value ="AAACZ5362M" IsDynamic="false"></Item>
+            <Item Value ="PONumber" IsDynamic="true"></Item>
+            <Item Value =" " IsDynamic="true" Height="5"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFHeader>
+  <PDFBody>
+    <PDFTable DataSource="DSDETAIL" HeaderFromFirstRow ="false" Width="875" DataSourceType="DataTable" DisplayHeader="true" Height="455">
+      <Style borderBottomWidth="0"
+						 borderLeftWidth="1"
+						 borderTopWidth="0"
+						 borderRightWidth="1"
+						 fontName="Times New Roman"
+						 fontSize ="9"
+						 verticalAlign ="top"
+						 paddingBottom ="5"
+						 paddingLeft ="0"
+						 paddingRight="0"
+						 paddingTop ="0"
+						 RowDistance ="3"
+						 />
+      <TableColumns IsDynamic="true">
+        <Column width="266">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+									 borderWidth ="1"
+									 borderTopWidth="0"
+									 borderLeftWidth="0"
+									 borderBottomWidth="1"
+									 borderRightWidth="0"
+									 verticalAlign ="middle"
+									 textAlign ="center"
+									 paddingTop="0" paddingBottom ="0" paddingLeft="0"/>
+            <Item Value ="Description"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="left"
+									 verticalAlign ="top"
+									 borderLeftWidth="1"
+									 borderRightWidth="1"
+									 borderBottomWidth="0"
+									 borderTopWidth="0"
+									 paddingTop="0" paddingBottom ="0" paddingLeft="2"/>
+            <Item Value ="Description" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="118">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+									 borderWidth ="1"
+									 borderTopWidth="0"
+									 borderLeftWidth="0"
+									 borderBottomWidth="1"
+									 borderRightWidth="0"
+									 verticalAlign ="middle"
+									 textAlign ="center"
+									 paddingTop="0" paddingBottom ="0" paddingRight="0"/>
+            <Item Value ="Units"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+									 verticalAlign ="top"
+									 borderLeftWidth="1"
+									 borderRightWidth="1"
+									 borderBottomWidth="0"
+									 borderTopWidth="0"
+									 paddingTop="0" paddingBottom ="0" paddingRight="2"/>
+            <Item Value ="Quantity" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="135">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+									 borderWidth ="1"
+									 borderTopWidth="0"
+									 borderLeftWidth="0"
+									 borderBottomWidth="1"
+									 borderRightWidth="0"
+									 verticalAlign ="middle"
+									 textAlign ="center"
+									 paddingTop="0" paddingBottom ="0" paddingRight="0"/>
+            <Item Value ="Unit Price"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+									 verticalAlign ="top"
+									 borderLeftWidth="1"
+									 borderRightWidth="1"
+									 borderBottomWidth="0"
+									 borderTopWidth="0"
+									 paddingTop="0" paddingBottom ="0" paddingRight="2"/>
+            <Item Value ="Rate" IsDynamic ="true"></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="120">
+          <ColumnHeader>
+            <Style fontStyle ="bold"
+									 textAlign ="center"
+									 verticalAlign ="middle"
+									 borderWidth ="1"
+									 borderTopWidth="0"
+									 borderLeftWidth="0"
+									 borderBottomWidth="1"
+									 borderRightWidth="0"
+									 paddingTop="0" paddingBottom ="0" paddingRight="0"/>
+            <Item Value ="Total"></Item>
+          </ColumnHeader>
+          <ColumnBody>
+            <Style textAlign ="right"
+									 verticalAlign ="top"
+									 borderLeftWidth="1"
+									 borderRightWidth="1"
+									 borderBottomWidth="0"
+									 borderTopWidth="0"
+									 paddingTop="0" paddingBottom ="0" paddingRight="2"/>
+            <Item Value ="Total" IsDynamic ="true" SourceType="date"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" DataSource="DSDETAIL" DataSourceType="DataTable" y="455" x="0" rowHeight="23">
+      <Style borderTopWidth ="1" borderBottomWidth="0" borderLeftWidth="1" borderRightWidth="1"
+						 verticalAlign ="top" textAlign ="left"
+						 fontName="TimesNewRoman" fontStyle="regular" fontSize="9" paddingBottom="2" paddingLeft="0" paddingRight="0"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="638">
+          <ColumnBody>
+            <Style paddingLeft="3" borderLeftWidth="0" borderRightWidth="0"/>
+            <Item Value ="OrgLeveUserDef01" IsDynamic="true" ></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="2">
+          <ColumnBody>
+            <Style borderLeftWidth="0" borderRightWidth="0"/>
+            <Item Value =" " IsDynamic="false" ></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+
+    <PDFTable DisplayHeader ="false" x="0" y ="478" DataSource="DSDETAILLEVEL1" DataSourceType="DataTable">
+      <Style borderTopWidth="0" borderBottomWidth="1" borderLeftWidth="1" borderRightWidth="1" verticalAlign ="top" fontSize="10"  textAlign ="right"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="500">
+          <ColumnBody>
+            <Style fontName="Times New Roman" paddingTop="0" borderTopWidth="0" borderBottomWidth="0" borderLeftWidth="0" borderRightWidth="0" paddingRight="4" paddingBottom="0"/>
+            <Item Value ="SummaryDescription" IsDynamic="true"  OnLastPageOnly="true" RowNumber="0" Height="15"></Item>
+            <Item Value ="SummaryDescription" IsDynamic="true"  OnLastPageOnly="true" RowNumber="1" Height="15"></Item>
+            <Item Value ="SummaryDescription" IsDynamic="true"  OnLastPageOnly="true" RowNumber="2" Height="15"></Item>
+            <Item Value ="SummaryDescription" IsDynamic="true"  OnLastPageOnly="true" RowNumber="3" Height="15"></Item>
+            <Item Value ="SummaryDescription" IsDynamic="true"  OnLastPageOnly="true" RowNumber="4" Height="15"></Item>
+            <Item Value=""></Item>
+          </ColumnBody>
+        </Column>
+        <Column width="141">
+          <ColumnBody>
+            <Style fontStyle ="regular" fontName="Times New Roman" paddingTop="0" borderWidth="0" textAlign="right"/>
+            <Item Value ="SummaryValue" IsDynamic="true"  OnLastPageOnly="true" RowNumber="0" fontStyle="Bold"></Item>
+            <Item Value ="SummaryValue" IsDynamic="true"  OnLastPageOnly="true" RowNumber="1"></Item>
+            <Item Value ="SummaryValue" IsDynamic="true"  OnLastPageOnly="true" RowNumber="2"></Item>
+            <Item Value ="SummaryValue" IsDynamic="true"  OnLastPageOnly="true" RowNumber="3"></Item>
+            <Item Value ="SummaryValue" IsDynamic="true"  OnLastPageOnly="true" RowNumber="4" fontStyle="Bold"></Item>
+            <Item Value =""></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFBody>
+  <PDFFooter>
+    <PDFShape X="0" Width="635" Y="0" Height="100" RoundedX="15" RoundedY="10" Border="2"/>
+    <PDFTable DisplayHeader ="false" x="20" y ="10" Height="100" DataSource="DSHEADER" DataSourceType="DataTable">
+      <Style borderWidth ="0"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="630">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="regular" paddingBottom="0" paddingTop="0" paddingLeft="0" paddingRight="0"/>
+            <Item Value ="Fund Transfer Instructions" fontStyle="Bold"></Item>
+            <Item Value ="Company Name : ZEROCHAOS WORKFORCE SOLUTIONS PRIVATE LIMITED"></Item>
+            <Item Value ="Account Number : 4630378"></Item>
+			      <Item Value ="Name and address of the Bank : The Royal Bank Of Scotland N.V."></Item>
+			      <Item Value ="Prestige Towers. Ground Floor No. 99/100 Residency Road, Bangalore, Karnataka, India - 560 025"></Item>
+            <Item Value ="Bank Swift Code : ABNAINBBBGL"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+    <PDFTable DisplayHeader ="false" x="500" y ="125" Height="100" DataSource="DSHEADER" DataSourceType="DataTable" rowHeight="18">
+      <Style borderWidth ="0"
+						 verticalAlign ="top"
+						 textAlign ="left"/>
+      <TableColumns IsDynamic ="false">
+        <Column width="200">
+          <ColumnBody>
+            <Style fontName="Times New Roman" fontSize="9" fontStyle="regular" paddingBottom="0" paddingTop="0" paddingLeft="0" paddingRight="0"/>
+            <Item Value ="Authorised Signatory" fontStyle="Bold"></Item>
+          </ColumnBody>
+        </Column>
+      </TableColumns>
+    </PDFTable>
+  </PDFFooter>
+</PDF>
