@@ -1,8 +1,10 @@
 High Level Summary:
+---------------------------
 
-We are moving to a different pdf template within the organization.  Old template was in xml.  We need to convert them into cshtml files so that they work with new PDF generation framework.
+We are moving to a different pdf template within the organization.  Old template was in xml.  We need to convert them into cshtml files so that they work with new PDF creation framework.
 
 Instructions:
+----------------
 
 Map data in DocName.xml PDFHeader section to cshtml DocName_ConsolidatedInvoiceHeader.cshtml file.
 
@@ -10,11 +12,18 @@ Map data in DocName.xml PDFBody section to cshtml DocName_ConsolidatedInvoiceBod
 
 Map data in DocName.xml PDFFooter section to cshtml DocName_ConsolidatedInvoiceFooter.cshtml file.
 
-Use Chrysler_Standard_US.xml -> Chrysler_Standard_US_ConsolidatedInvoiceHeader.cshtml as an example.
+Use Chrysler_Standard_US.xml -> Chrysler_Standard_US_ConsolidatedInvoice*.cshtml as an example located in the https://github.com/pphamzc/template-conversion/tree/master/Example directory.
 
 If there are items in the template but not in original xml file, remove template item from converted cshtml file.
 If there are items in original xml file but not in template, add original item to converted cshtml file.
 
 Location of Files:
+----------------------
 
- b
+This instruction file : https://github.com/pphamzc/template-conversion
+
+Directory of xml templates : https://github.com/pphamzc/template-conversion/tree/master/Xml
+
+Directory of converted cshtml templates : https://github.com/pphamzc/template-conversion/tree/master/Cshtml
+
+Direcotry of examples for conversion : https://github.com/pphamzc/template-conversion/tree/master/Example
