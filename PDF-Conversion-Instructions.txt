@@ -26,4 +26,4 @@ Directory of xml templates : https://github.com/pphamzc/template-conversion/tree
 
 Directory of converted cshtml templates : https://github.com/pphamzc/template-conversion/tree/master/Cshtml
 
-Direcotry of examples for conversion : https://github.com/pphamzc/template-conversion/tree/master/Example
+Directory of examples for conversion : https://github.com/pphamzc/template-conversion/tree/master/Example
