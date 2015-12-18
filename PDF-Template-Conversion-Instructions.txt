@@ -20,7 +20,7 @@ If there are items in original xml file but not in template, add original item t
 Location of Files:
 ----------------------
 
-This instruction file : https://github.com/pphamzc/template-conversion
+This instruction file : https://github.com/pphamzc/template-conversion/PDF-Template-Conversion-Instructions.txt
 
 Directory of xml templates : https://github.com/pphamzc/template-conversion/tree/master/Xml
 
