@@ -14,8 +14,12 @@ Map data in DocName.xml PDFFooter section to cshtml DocName_ConsolidatedInvoiceF
 
 Use Chrysler_Standard_US.xml -> Chrysler_Standard_US_ConsolidatedInvoice*.cshtml as an example located in the https://github.com/pphamzc/template-conversion/tree/master/Example directory.
 
+NOTE : the template for cshtml file are the converted files located in https://github.com/pphamzc/template-conversion/tree/master/Example directory.
+
 If there are items in the template but not in original xml file, remove template item from converted cshtml file.
 If there are items in original xml file but not in template, add original item to converted cshtml file.
+
+For example, if there is a data row for "Sub Sub Total" in the cshtml template but not in the original xml file, then remove "Sub Sub Total" from final cshtml file.
 
 Location of Files:
 ----------------------
