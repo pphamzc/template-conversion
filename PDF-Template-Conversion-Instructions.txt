@@ -3,8 +3,10 @@ High Level Summary:
 
 We are moving to a different pdf template within the organization.  Old template was in xml.  We need to convert them into cshtml files so that they work with new PDF creation framework.
 
+
 Instructions:
 ----------------
+For each XML template, we will create respective header, body and footer templates( .cshtml ).
 
 Map data in DocName.xml PDFHeader section to cshtml DocName_ConsolidatedInvoiceHeader.cshtml file.
 
@@ -23,6 +25,53 @@ If there are items in the template but not in original xml file, remove template
 If there are items in original xml file but not in template, add original item to converted cshtml file.
 
 For example, if there is a data row for "Sub Sub Total" in the cshtml template but not in the original xml file, then remove "Sub Sub Total" from final cshtml file.
+
+
+Notes on conversion process:
+--------------------------------------
+Model Declaration
+- 	Declare the model object as below in .cshtml.
+		@inherits
+		Westwind.RazorHosting.RazorTemplateBase<ZeroChaos.Business.Entities.InvoicePdfGenerationDetails>
+		This model object contains the properties named HeaderDetailsDataSet ,
+		BodyDetailsDataSet and ImagesFolderRootPath.
+	
+-	For accessing Logo or other Images
+		Use ImagesFolderRootPath property in Model object for the source path of the logo or images.
+		<img src="@Model.ImagesFolderRootPath/zcLogo.png" alt="logo"
+		style="width:70%" />
+
+-	CSS declaration
+		Add the styles related to a template in the style section of the template as follows.
+		<style>
+		* {
+		font-family: 'Times New Roman', Times, serif;
+		}
+		.display-inline-block {
+		display: inline-block;
+		}
+		</style>
+		These internal CSS won’t get moved to external CSS, as external CSS will make one more request for getting the styles which will increase the invoice creation time.
+
+-	Avoid using using MVC Helpers
+	Instead of using HTML helpers, use html tags
+		@Html.Label can be wrote like <label>@Model.SomeValue</label>.
+	Instead of using URL helpers of use anchor tag of HTML
+		@Url.Action can be wrote like <a href='#SomeLink'>SomeValue</a>.
+	We won't support layout, which mean we can't have a partial view and layout page.  Instead, we will have a view where we can directly keep the required template.
+	And also, @section helper is not supported because layout based approach is not supported here(We will use section helpers mainly when we have the approach of layout and partials).
+	It is allowed to use @foreach.
+
+-	Header details in Template
+	Use HeaderDetailsDataSet in Model object for accessing the properties related to Header.
+	This is a DataSet which contains a single row which can be accessed like as Model.HeaderDetailsDataSet.Tables[0].Rows[0].
+	This data set object contains properties names same as in XML
+
+-	Body details in Template
+	Use BodyDetailsDataSet in Model object for accessing the properties related to Body.
+	This is a DataSet which contains many number of rows .
+	This data set object contains properties names same as in XML
+
 
 Location of Files:
 ----------------------
