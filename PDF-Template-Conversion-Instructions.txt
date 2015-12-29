@@ -76,7 +76,7 @@ Model Declaration
 Location of Files:
 ----------------------
 
-This instruction file : https://github.com/pphamzc/template-conversion/PDF-Template-Conversion-Instructions.txt
+This instruction file : https://github.com/pphamzc/template-conversion/blob/master/PDF-Template-Conversion-Instructions.txt
 
 Directory of xml templates : https://github.com/pphamzc/template-conversion/tree/master/Xml
 
