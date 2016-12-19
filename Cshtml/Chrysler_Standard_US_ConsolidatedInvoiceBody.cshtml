@@ -1,5 +1,4 @@
-﻿@using System.Data;
-@model ZeroChaos.Business.Entities.InvoicePdfGenerationDetails
+﻿
 <style>
     * {
         font-family: 'Times New Roman', Times, serif;
@@ -70,41 +69,40 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (DataRow row in Model.BodyDetailsDataSet.Tables[0].Rows)
-            {
+           
                 <tr>
                     <td>
-                        @row["Name"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["Description"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["ApprovalManager"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["ApprovalDate"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["PONumber"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["AltPONum"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td class="right-align">
-                        @row["Quantity"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td>
-                        @row["Units"].ToString()
+                       @DateTime.Now.ToString()
                     </td>
                     <td class="right-align">
-                        @row["Rate"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                     <td class="right-align">
-                        @row["Total"].ToString()
+                         @DateTime.Now.ToString()
                     </td>
                 </tr>
-            }
+          
         </tbody>
         <tfoot>
             <tr>

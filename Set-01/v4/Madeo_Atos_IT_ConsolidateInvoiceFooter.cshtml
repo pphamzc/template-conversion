@@ -1,0 +1,73 @@
+@using System.Data
+@inherits Westwind.RazorHosting.RazorTemplateBase<ZeroChaos.Business.Entities.InvoicePdfGenerationDetails>
+
+<style>
+* {
+  font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+}
+body{
+  font-size: 20px;
+}
+
+.footer {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.round-box {
+  border: 4px solid #000;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.logo img {
+  width: auto;
+  height: 120px;
+}
+table {
+  width: 100%;
+  font-size: 20px;
+}
+table tr td {
+  line-height: 25px;
+}
+</style>
+
+<div class="footer">
+  <div class="round-box">
+    <div class="row-table">
+      <table>
+        <tr>
+          <td>ZeroChaos OY</td>
+          <td>Tel</td>
+          <td>+358 40 558 1128</td>
+          <td>Business ID:</td>
+          <td>2981444</td>
+        </tr>
+        <tr>
+          <td>Lars Sonckin kaari 14</td>
+          <td>Fax</td>
+          <td></td>
+          <td>Domicile:</td>
+          <td>Helsinki</td>
+        </tr>
+        <tr>
+          <td>02600 Espoo</td>
+          <td>BIC</td>
+          <td>ESSEFIHX</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>FINLAND</td>
+          <td>IBAN</td>
+          <td>FI83 3301 0001 2312 40</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

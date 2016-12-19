@@ -1,0 +1,424 @@
+@using System.Data
+@using System.Collections
+@using System.Text
+@using Newtonsoft.Json
+@inherits Westwind.RazorHosting.RazorTemplateBase
+
+@functions{
+public class LineItem
+    {
+        [JsonProperty("PO Line Item")]
+        public string PoLineItem { get; set; }
+        public string Description { get; set; }
+        public string Units { get; set; }
+        [JsonProperty("Unit Price")]
+        public string UnitPrice { get; set; }
+        public string Total { get; set; } 
+    }
+
+    public List<LineItem> InvoiceData = new List<LineItem>() { new LineItem() { PoLineItem = "", Description = "Recruitment Fee Ryk, Agata [409427] Polska RPO Inter Paper", Units = "1.00", UnitPrice = "PLN 15,300.00", Total = "PLN 15,300.00" } };
+
+    
+}
+
+<style>
+* {
+	font-family: 'Times New Roman', Times, serif;
+}
+body{
+    font-size: 20px;
+}
+.body {
+    width: 85%;
+    margin: 0 auto;
+}
+.no-page-brake-after{
+	page-break-after: avoid !important;
+}
+.no-page-brake-before{
+	page-break-before: avoid !important;
+}
+
+.always-page-break-after{
+	page-break-after: always;
+}
+table {
+	border: 3px solid #000;
+	border-collapse: collapse;
+	font-size: 20px;
+	
+
+	width: 100%;
+	table-layout: fixed;
+}
+table .thead.th {
+	text-align: center;
+	font-weight: 600;
+	height: 64px;
+}
+table .th {
+	border: 3px solid #000;
+	border-bottom-width: 3px;
+}
+table .tfoot.th {
+	border: none !important;
+	height: 70px;
+	font-weight: 300;
+}
+table .tbody.td {
+    border: 3px solid #000;
+    border-top: none;
+    border-bottom: none;
+		padding: 5px;
+		height: 64px;
+}
+table > tr.tfoot.row ~ tr.tfoot.row {
+    border: none;
+}
+table > tr.tfoot.row {
+    border-top: 3px solid black;
+}
+</style>
+
+<div class="body" id="body"></div>
+
+<script type="text/javascript">
+	var config = {
+		columns: 5,
+		maxRows: 8,
+		footerRows: 2,
+		columnWidths: [80, 240, 90, 114, 115],
+		headerColumnStyles: {
+			col1:[
+				{
+					style:"padding",
+					value:"0 15px"
+				}
+			],
+			col2:[],
+			col3:[],
+			col4:[],
+			col5:[]
+		},
+		bodyColumnStyles:{
+			col1:[],
+			col2:[],
+			col3:[
+				{
+					style:"text-align",
+					value:"right"
+				},
+				{
+					style:"padding-right",
+					value:"5px"
+				}
+			],
+			col4:[
+				{
+					style:"text-align",
+					value:"right"
+				},
+				{
+					style:"padding-right",
+					value:"5px"
+				}
+			],
+			col5:[
+				{
+					style:"text-align",
+					value:"right"
+				},
+				{
+					style:"padding-right",
+					value:"5px"
+				}
+			]
+		},
+		footerColumnStyles:{
+			col1:[],
+			col2:[
+				{
+					style:"text-align",
+					value:"center"
+				}
+			],
+			col3:[
+				{
+					style:"text-align",
+					value:"left"
+				}
+			],
+			col4:[
+				{
+					style:"text-align",
+					value:"center"
+				}
+			],
+			col5:[
+				{
+					style:"text-align",
+					value:"right"
+				},
+				{
+					style:"padding-right",
+					value:"5px"
+				},
+				{
+					style:"font-weight",
+					value:"600"
+				}
+			]
+		}
+	};
+	var headerContent = [
+		"PO Line Item",
+		"Description",
+		"Units",
+		"Unit Price",
+		"Total"
+	];
+	
+	
+	//var data = @Html.Raw(JsonConvert.SerializeObject(InvoiceData));
+
+	var data = [
+		{
+			"PO Line Item":"",
+			"Description":"Recruitment Fee Ryk, Agata [409427] Polska RPO Inter Paper",
+			"Units":"1.00",
+			"Unit Price":"PLN 15,300.00",
+			"Total":"PLN 15,300.00"
+		},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Szyszko, Wojciech [409428] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 17,000.00",
+				"Total":"PLN 17,000.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Krzysztof Reversal [409429] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 3,091.00",
+				"Total":"-PLN 3,091.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Katarzyna Reversal [409430] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 1,140.00",
+				"Total":"-PLN 1,140.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Reversal [409431] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 13,090.00",
+				"Total":"-PLN 13,090.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Ronda, Tomasz [409424] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 19,356.00",
+				"Total":"PLN 19,356.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Ubanczyk, Jakub [409423] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 13,600.00",
+				"Total":"PLN 13,600.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Maziarz, Norbert [409422] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 13,090.00",
+				"Total":"PLN 13,090.00"
+			},
+		{
+			"PO Line Item":"",
+			"Description":"Recruitment Fee Ryk, Agata [409427] Polska RPO Inter Paper",
+			"Units":"1.00",
+			"Unit Price":"PLN 15,300.00",
+			"Total":"PLN 15,300.00"
+		},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Szyszko, Wojciech [409428] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 17,000.00",
+				"Total":"PLN 17,000.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Krzysztof Reversal [409429] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 3,091.00",
+				"Total":"-PLN 3,091.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Katarzyna Reversal [409430] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 1,140.00",
+				"Total":"-PLN 1,140.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"RPO Fee Reversal [409431] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"-PLN 13,090.00",
+				"Total":"-PLN 13,090.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Ronda, Tomasz [409424] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 19,356.00",
+				"Total":"PLN 19,356.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Ubanczyk, Jakub [409423] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 13,600.00",
+				"Total":"PLN 13,600.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Maziarz, Norbert [409422] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 13,090.00",
+				"Total":"PLN 13,090.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Przybylska, Katarzyna [409421] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 1,140.00",
+				"Total":"PLN 1,140.00"
+			},
+			{
+				"PO Line Item":"",
+				"Description":"Recruitment Fee Gtogowski Krzysztof [409420] Polska RPO Inter Paper",
+				"Units":"1.00",
+				"Unit Price":"PLN 3,091.00",
+				"Total":"PLN 3,091.00"
+			}
+	];
+
+	
+
+	var footerContent = [
+		{
+			col1:"",
+			col2:"Net",
+			col3:"VAT%",
+			col4:"VAT Amt",
+			col5:"To Pay"
+		},
+		{
+			col1:"",
+			col2:"PLN 0.00",
+			col3:"0.00%",
+			col4:"PLN 0.00",
+			col5:"PLN 0.00"
+		}
+	];
+
+	function initRows(){
+		if(data.length%config.maxRows !== 0){
+			var emptyRowsNeeded = config.maxRows - (data.length % config.maxRows);
+			for(var i=0;i<emptyRowsNeeded;i++){
+				data.push({"empty":true});
+			}
+		}
+	}
+
+		
+	function createHeader (table) {
+		var tr = document.createElement('tr');
+		for(var i=0;i<config.columns;i++){
+			var td = document.createElement('td');
+			td.className += "thead th";
+			td.style.width = config.columnWidths[i];
+			for(var c=0;c<config.headerColumnStyles["col"+(i+1)].length;c++){
+				td.style[config.headerColumnStyles["col"+(i+1)][c].style] = config.headerColumnStyles["col"+(i+1)][c].value;
+			}
+			var text = document.createTextNode(headerContent[i]);
+			td.appendChild(text);
+			tr.appendChild(td);
+		}
+		table.appendChild(tr);
+		return table;
+	}
+
+	function createBody (index,table) {
+		for(var c=index;c<index+config.maxRows;c++){
+			var tr = document.createElement('tr');
+			for(var i=0;i<config.columns;i++){
+				var td = document.createElement('td');
+				td.className += "tbody td";
+				for(var j=0;j<config.bodyColumnStyles["col"+(i+1)].length;j++){
+					td.style[config.bodyColumnStyles["col"+(i+1)][j].style] = config.bodyColumnStyles["col"+(i+1)][j].value;
+				}
+				if(data[c].empty === true){
+					var text = document.createTextNode("\u00A0");
+				}else{
+					var text = document.createTextNode(data[c][headerContent[i]]);
+				}
+				td.appendChild(text);
+				tr.appendChild(td);
+			}
+			table.appendChild(tr);
+		}
+		return table;
+	}
+
+	function createFooter (withContent,table) {
+		for(var c=0;c<config.footerRows;c++){
+			var tr = document.createElement('tr');
+			tr.className += "tfoot row";
+			for(var i=0;i<config.columns;i++){
+				var td = document.createElement('td');
+				td.className += "tfoot th";
+				for(var j=0;j<config.bodyColumnStyles["col"+(i+1)].length;j++){
+					td.style[config.bodyColumnStyles["col"+(i+1)][j].style] = config.bodyColumnStyles["col"+(i+1)][j].value;
+				}
+				var text = (withContent === true) ? document.createTextNode(footerContent[c]["col"+(i+1)]) : document.createTextNode("\u00A0");
+				td.appendChild(text);
+				tr.appendChild(td);
+			}
+			table.appendChild(tr);
+		}
+		return table;
+	}
+
+	initRows();
+
+	for(var i=0;i<data.length/config.maxRows;i++) {
+		var nTable = document.createElement('table');
+		nTable = createHeader(nTable);
+		nTable = createBody(i*config.maxRows, nTable);
+		nTable = createFooter(i===(data.length/config.maxRows-1), nTable);
+		
+		if(data.length > config.maxRows)
+		{
+			nTable.className += "always-page-break-after ";
+		}
+		
+		if(i===(data.length/config.maxRows-1)) {
+			nTable.className += "no-page-brake-after ";
+		}
+		if(i===0) {
+			nTable.className += "no-page-brake-before ";
+		}
+		document.getElementById("body").appendChild(nTable);
+
+	}
+	
+	
+</script>
